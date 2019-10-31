@@ -1,0 +1,49 @@
+
+import java.util.Arrays;
+import java.util.Stack;
+
+public class Palindrome {
+  
+  
+   // Sample input
+   public static int[] input = {0,1,2,1,0};
+  
+   public static boolean isPalindrome(int ar[]){
+       int i=0,e=ar.length-1; //get start and end index
+       while(i<e){ //until both crosses
+           if(ar[i]==ar[e]){ //if last and first element same
+               i++; //go one step up
+               e--; //and one step down
+           }
+           else{ //if not matches
+               return false; //return false
+           }
+       }
+       return true; //if program reach here input is pelindrom
+   }
+  
+   public static void main(String[] args){
+       // Display Input
+      System.out.println("Input:\t" + Arrays.toString(input));
+       // Create an empty stack
+      Stack<Integer> stack = new <Integer>Stack();
+       for(int i=0; i<input.length;i++){
+           stack.push(input[i]);//// One by one push all characters of string to stack.
+          } // Save the reversed input string
+   String reversed = "";
+    while(!stack.empty()){
+      //One by one pop all characters from stack and put them back to string.
+      reversed += Integer.toString(stack.pop());
+    
+       }
+       //System.out.println(stack);
+       System.out.println("Output:\t" + Arrays.toString(reversed.split("")));
+       //Driver program to test
+      
+       System.out.println(isPalindrome(input));
+       int[] input1 = {0,1,7,9,0};
+       System.out.println("Input:\t" + Arrays.toString(input1));
+       System.out.println(isPalindrome(input1));
+      
+   }
+}
